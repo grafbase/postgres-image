@@ -1,0 +1,17 @@
+version: "3"
+services:
+  postgres:
+    image: grafbase/postgres-15:latest
+    restart: always
+    command: postgres -c 'max_connections=1000'
+    environment:
+      POSTGRES_PASSWORD: "grafbase"
+      POSTGRES_HOST_AUTH_METHOD: "md5"
+      POSTGRES_INITDB_ARGS: "--auth-host=md5"
+    ports:
+      - "5432:5432"
+    networks:
+      - databases
+
+networks:
+  databases: null
