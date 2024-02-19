@@ -1,4 +1,4 @@
-FROM postgres:15
+FROM postgres:16
 WORKDIR "/root"
 RUN apt-get update -y && \
   apt-get install -y wget curl && \
